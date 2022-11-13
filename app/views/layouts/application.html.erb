@@ -12,5 +12,44 @@
 
   <body>
     <%= yield %>
+    <header class="navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="header-logo col-xs-3">
+            <% unless admin_signed_in %> <!-- 管理者側　ログインしている時 -->
+              <%= link_to root_path do %>
+                <span>LOGO</span>
+              <% end %>
+            <% else %>
+              <%= link_to admin_root_path do %>
+                <span>LOGO</span>
+              <% end %>
+            <% end %>
+          </div>
+          
+          <div class="col-xs-9">
+            <div class="row header-top">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+    <footer>
+      <div class="footer-top"></div>
+      <div class="footer-bottom text-center">
+        <p><small>&copy;</small> Nagano_CAKE Co. Ltd.</p>
+      </div>
+    </footer>
   </body>
 </html>
