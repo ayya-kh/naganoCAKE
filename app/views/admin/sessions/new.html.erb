@@ -7,8 +7,6 @@
       <div clss="form-group">
         <div class="col-xs-offset-2 col-xs-2">
           <%= f.label :メールアドレス, class: "control-label" %>
-        </div>
-        <div class="col-xs-6">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
       </div>
@@ -16,9 +14,7 @@
       <div class="form-group">
         <div class="col-xs-offset-2 col-xs-2">
           <%= f.label :パスワード, class: "control-label" %>
-        </div>
-        <div class="col-xs-6">
-          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          <%= f.password_field :password, autocomplete: "encrypted_password", class: "form-control" %>
         </div>
       </div>
 
