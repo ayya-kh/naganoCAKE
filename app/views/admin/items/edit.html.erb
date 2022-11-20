@@ -6,7 +6,7 @@
   <div class="item-form">
     <%= form_for([:admin, @item]) do |f| %>
 
-      <div class="col-xs-5">
+      <div class="mx-5 col-xs-5">
         <div class="field">
           <%= f.label :image, "商品画像", class: "col-sm-4 col-form-label" %>
           <%= f.file_field :image, accept: "image/*" %>
