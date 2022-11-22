@@ -20,7 +20,14 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
 
     resources :items, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update] #customersを　get ○○ => に直す rails routesで確認(customers/:idになっていなければよい)
+    get 'customers/my_page' => "customers#show"
+    get 'customers/information/edit' => "customers#edit"
+    patch 'customers/information' => "customers#update"
+    get 'customers/unsubscribe' => "customers#unsubscribe"
+
+
+    resources :orders, only: [:new, :create, :index, :show]
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
   namespace :admin do
