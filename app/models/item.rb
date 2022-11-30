@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_one_attached :image
+  has_many :order_details
 
   def tax_price
     # 税率

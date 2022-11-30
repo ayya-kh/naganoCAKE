@@ -24,16 +24,24 @@ Rails.application.routes.draw do
     get 'customers/information/edit' => "customers#edit"
     patch 'customers/information' => "customers#update"
     get 'customers/unsubscribe' => "customers#unsubscribe"
+    patch 'customers/withdraw' => "customers#withdraw"
 
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete 'cart_items' => 'cart_items#destroy_all', as: 'cart_destroy_all'
 
+    get 'orders/complete' => 'orders#complete'
+    post 'orders/confirm' => 'orders#confirm'
     resources :orders, only: [:new, :create, :index, :show]
+
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
   namespace :admin do
-    get "top" => "homes#top"
+    root "homes#top"
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
 
 

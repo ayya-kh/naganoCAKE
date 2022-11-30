@@ -11,37 +11,25 @@
   </head>
 
   <body>
+    <header>
+      <% if request.fullpath.include? "/admin" %>
+        <%= render "layouts/admin_header" %>
+      <% else %>
+        <%= render "layouts/public_header" %>
+      <% end %>
+    </header>
+
     <%= yield %>
-    <header class="navbar-fixed-top">
-      <div class="container">
-        <div class="row">
-          <div class="header-logo col-xs-3">
-            <!--link_to "ログアウト", destroy_customer_session_path, method: :delete -->
 
-          </div>
-
-          <div class="col-xs-9">
-            <div class="row header-top">
-
+    <footer>
+      <div class="bg-light border-top py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-9 mb-2">
+              <span class="text-muted">Copyright © Nagano CAKE All Rights Reserved.</span>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-
-
-
-
-
-
-
-
-
-
-    <footer>
-      <div class="footer-top"></div>
-      <div class="footer-bottom text-center">
-        <p><small>&copy;</small> Nagano_CAKE Co. Ltd.</p>
       </div>
     </footer>
   </body>

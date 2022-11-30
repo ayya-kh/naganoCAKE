@@ -1,1 +1,24 @@
-<h3 class="mb-3">publicのindex</h3>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <h2>商品一覧 <span class="small">(全<%= @items.count %>件)</span></h2>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <% @items.each do |item| %>
+    <div class="col-sm-6 col-xl-3 mb-4">
+      <div class="card bg-light h-100 justify-content-between shadow-lg hover-img">
+        <%= image_tag item.image, size: "240x240", class: "bd-placeholder-img bd-placeholder-img-lg card-img rounded shadow-lg" %>
+        <div class="card-body flex-grow-1 d-flex flex-column justify-content-between">
+          <%= link_to item_path(item), class: "text-reset stretched-link" do %>
+            <h5 class="card-title"><%= item.name %></h5>
+          <% end %>
+          <p class="card-text">￥<%= item.tax_price.to_s(:delimited) %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</div>
