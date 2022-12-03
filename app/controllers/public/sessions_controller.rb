@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
 
   def after_sign_in_path_for(resource)
-      customers_my_page_path(resource)
+      root_path
   end
 
   # GET /resource/sign_in
